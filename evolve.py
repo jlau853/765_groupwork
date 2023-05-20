@@ -47,31 +47,7 @@ def random_light_position(robot) :
         y = np.random.rand()*2.0-1.0
     return x,y
 
-def simulate_trial(controller,trial_index,generating_animation=False) :
-    """
-    controller       -- the controller we are simulating
-
-    trial_index -- we evaluate fitness by taking the average of N
-                   trials. This argument tells us which trial we are
-                   currently simulating
-
-    """
-    # ## reset the seed to make randomness of environment consistent for this generation
-    np.random.seed(generation_index*10+trial_index)
-
-    #### initialize the simulation    
-    current_time = 0.0    
-    score = 0.0    
-
-    ## reset the robot
-    robot = Robot()
-    robot.x = 0.0
-    robot.y = 0.0
-    robot.a = 0.0
-
-    ## get the controller for the robot from the population
-    controller.trial_data = {}
-
+def generate_static_environment(robot):
     food_entities = []
     water_entities = []
     trap_entities = []
@@ -94,6 +70,40 @@ def simulate_trial(controller,trial_index,generating_animation=False) :
                 water_entities.append(entity_light)
             if entity_type == EntityTypes.TRAP :
                 trap_entities.append(entity_light)
+    
+    return food_entities, water_entities, trap_entities
+
+
+def simulate_trial(controller,trial_index, robot, environment, generating_animation=False) :
+    """
+    controller       -- the controller we are simulating
+
+    trial_index -- we evaluate fitness by taking the average of N
+                   trials. This argument tells us which trial we are
+                   currently simulating
+
+    """
+    # ## reset the seed to make randomness of environment consistent for this generation
+    np.random.seed(generation_index*10+trial_index)
+
+    #### initialize the simulation    
+    current_time = 0.0    
+    score = 0.0   
+
+    food_entities = environment[0]
+    water_entities = environment[1]
+    trap_entities = environment[2]
+
+    
+
+    ## get the controller for the robot from the population
+    controller.trial_data = {}
+
+    robot.x = 0.0
+    robot.y = 0.0
+    robot.a = 0.0
+
+    
     
     ## batteries
     water_b = 1.0
@@ -154,14 +164,14 @@ def simulate_trial(controller,trial_index,generating_animation=False) :
             if (robot.x - light.x)**2 + (robot.y - light.y)**2 < ENTITY_RADIUS**2 :
                 food_b += 20.0*DT
                 controller.trial_data['eaten_FOOD_positions'].append( (light.x,light.y) )
-                light.x,light.y = random_light_position(robot) ## relocate entity
+                #light.x,light.y = random_light_position(robot) ## relocate entity
 
         ## check for WATER collisions
         for light in robot.lights[EntityTypes.WATER] :
             if (robot.x - light.x)**2 + (robot.y - light.y)**2 < ENTITY_RADIUS**2 :
                 water_b += 20.0*DT
                 controller.trial_data['eaten_WATER_positions'].append( (light.x,light.y) )
-                light.x,light.y = random_light_position(robot) ## relocate entity
+                #light.x,light.y = random_light_position(robot) ## relocate entity
 
         ## check for TRAP collisions                
         for light in robot.lights[EntityTypes.TRAP] :
@@ -170,7 +180,7 @@ def simulate_trial(controller,trial_index,generating_animation=False) :
                 water_b -= 50.0*DT
                 score = 0.0
                 controller.trial_data['eaten_TRAP_positions'].append( (light.x,light.y) )
-                light.x,light.y = random_light_position(robot) ## relocate entity
+                #light.x,light.y = random_light_position(robot) ## relocate entity
 
         ## DEATH -- if either of the batteries reaches 0, the trial is over
         if food_b < 0.0 or water_b < 0.0 :
@@ -195,8 +205,13 @@ def evaluate_fitness(controller) :
     ind -- the controller that is being evaluated
 
     """
+
+    ## reset the robot
+    robot = Robot()
     
-    trial_scores = [simulate_trial(controller,trial_index) for trial_index in range(N_TRIALS)]
+    environment = generate_static_environment(robot)
+    
+    trial_scores = [simulate_trial(controller,trial_index, robot, environment) for trial_index in range(N_TRIALS)]
     controller.fitness = np.mean(trial_scores)
     
     return controller
