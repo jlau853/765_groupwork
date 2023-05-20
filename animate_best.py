@@ -32,7 +32,7 @@ n_samples, n_entities, n_coords = np.shape( controller.trial_data['FOOD_position
 food_positions = np.array(controller.trial_data['FOOD_positions'])
 water_positions = np.array(controller.trial_data['WATER_positions'])
 trap_positions = np.array(controller.trial_data['TRAP_positions'])
-
+unknown_positions = np.array(controller.trial_data['UNKNOWN_positions'])
 
 ## exact radius of entities is approximate. May see glitches where
 ## robot seems to be close enough to have eaten a thing, but it
@@ -44,6 +44,8 @@ wc, = plt.plot(water_positions[0,:,0],
                water_positions[0,:,1],'b.',markersize=35.0,alpha=0.5)
 tc, = plt.plot(trap_positions[0,:,0],
                trap_positions[0,:,1],'r.',markersize=35.0,alpha=0.5)
+uc, = plt.plot(unknown_positions[0,:,0],
+               unknown_positions[0,:,1],'y.',markersize=35.0,alpha=0.5)
 
 robot_pos, = plt.plot(rxs[0],rys[0],'k.',markersize=20.0,alpha=0.5)
 
@@ -51,7 +53,7 @@ def init():
     ax.set_xlim(-1.5,1.5)
     ax.set_ylim(-1.5,1.5)
     ax.set_aspect('equal')
-    return ln,fc,wc,tc,robot_pos
+    return ln,fc,wc,tc,uc,robot_pos
 
 def update(frame):
     current_it = frame*its_per_frame 
@@ -64,8 +66,10 @@ def update(frame):
                 water_positions[current_it,:,1])
     tc.set_data(trap_positions[current_it,:,0],
                 trap_positions[current_it,:,1])
+    uc.set_data(unknown_positions[current_it,:,0],
+                unknown_positions[current_it,:,1])
     robot_pos.set_data(rxs[current_it],rys[current_it])
-    return ln,fc,wc,tc,robot_pos
+    return ln,fc,wc,tc,uc,robot_pos
 
 ani = FuncAnimation(fig, update, frames=len(rxs)//its_per_frame,
                     init_func=init, blit=True, interval=delay_between_frames)
