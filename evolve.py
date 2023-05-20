@@ -75,7 +75,6 @@ def simulate_trial(controller,trial_index,generating_animation=False) :
     food_entities = []
     water_entities = []
     trap_entities = []
-    unknown_entities = []
 
     ## reset the environment
     for entity_type in EntityTypes:
@@ -83,7 +82,6 @@ def simulate_trial(controller,trial_index,generating_animation=False) :
             EntityTypes.FOOD  : 2,  ## how many of each entity type to create
             EntityTypes.WATER : 2,
             EntityTypes.TRAP  : 2,
-            EntityTypes.UNKNOWN : 2,
         }
         for _ in range(n[entity_type]) :
             x,y = random_light_position(robot)
@@ -96,9 +94,6 @@ def simulate_trial(controller,trial_index,generating_animation=False) :
                 water_entities.append(entity_light)
             if entity_type == EntityTypes.TRAP :
                 trap_entities.append(entity_light)
-            if entity_type == EntityTypes.UNKNOWN:
-                unknown_entities.append(entity_light)
-
     
     ## batteries
     water_b = 1.0
@@ -112,12 +107,9 @@ def simulate_trial(controller,trial_index,generating_animation=False) :
     controller.trial_data['eaten_FOOD_positions']  = [] 
     controller.trial_data['eaten_WATER_positions'] = []
     controller.trial_data['eaten_TRAP_positions']  = []
-    controller.trial_data['eaten_UNKNOWN_positions']  = []
     controller.trial_data['FOOD_positions'] = []
     controller.trial_data['WATER_positions'] = []
     controller.trial_data['TRAP_positions'] = []
-    controller.trial_data['UNKNOWN_positions'] = []
-
     
     for iteration in range(N_STEPS) :
         ## keep track of battery states for plotting later
@@ -131,7 +123,6 @@ def simulate_trial(controller,trial_index,generating_animation=False) :
             controller.trial_data[f'FOOD_positions'].append( [(l.x,l.y) for l in food_entities] )
             controller.trial_data[f'WATER_positions'].append( [(l.x,l.y) for l in water_entities] )
             controller.trial_data[f'TRAP_positions'].append( [(l.x,l.y) for l in trap_entities] )
-            controller.trial_data[f'UNKNOWN_positions'].append( [(l.x,l.y) for l in unknown_entities] )
         
         ## each iteration, the time moves forward by the time-step, 'DT'
         current_time += DT
@@ -172,12 +163,6 @@ def simulate_trial(controller,trial_index,generating_animation=False) :
                 controller.trial_data['eaten_WATER_positions'].append( (light.x,light.y) )
                 light.x,light.y = random_light_position(robot) ## relocate entity
 
-        for light in robot.lights[EntityTypes.UNKNOWN] :
-            if (robot.x - light.x)**2 + (robot.y - light.y)**2 < ENTITY_RADIUS**2 :
-                food_b += 40.0*DT
-                controller.trial_data['eaten_UNKNOWN_positions'].append( (light.x,light.y) )
-                light.x,light.y = random_light_position(robot) ## relocate entity
-
         ## check for TRAP collisions                
         for light in robot.lights[EntityTypes.TRAP] :
             if (robot.x - light.x)**2 + (robot.y - light.y)**2 < ENTITY_RADIUS**2 :
@@ -196,7 +181,6 @@ def simulate_trial(controller,trial_index,generating_animation=False) :
     controller.trial_data['uneaten_FOOD_positions']  = [(l.x,l.y) for l in robot.lights[EntityTypes.FOOD]]
     controller.trial_data['uneaten_WATER_positions'] = [(l.x,l.y) for l in robot.lights[EntityTypes.WATER]]
     controller.trial_data['uneaten_TRAP_positions']  = [(l.x,l.y) for l in robot.lights[EntityTypes.TRAP]]
-    controller.trial_data['uneaten_UNKNOWN_positions']  = [(l.x,l.y) for l in robot.lights[EntityTypes.UNKNOWN]]
     controller.trial_data['robot'] = robot
 
     if TEST_GA :
@@ -219,8 +203,6 @@ def evaluate_fitness(controller) :
 
 def generation() :
     global pop,generation_index
-
-
     
     ## parallel evaluation of fitnesses (in parallel using multiprocessing)
     with Pool() as p:
@@ -231,7 +213,6 @@ def generation() :
 
     ## the fitness of every individual controller in the population
     fitnesses = [r.fitness for r in pop]
-
     ## we track the fitness of every individual at every generation for plotting
     pop_fit_history.append(sorted(np.array(fitnesses)))
 
@@ -275,14 +256,10 @@ def generation() :
     
     ## normalize the distribution of fitnesses to lie between 0 and 1
     f_normalized = np.array([x for x in fitnesses])
-
     f_normalized -= min(f_normalized)
-    
     if max(f_normalized) > 0.0 :
         f_normalized /= max(f_normalized)
     sum_f = max(0.01,sum(f_normalized))
-
-    
 
     ## ps: the probability of being selected as a parent of each
     ## individual in the next generation

@@ -1,13 +1,10 @@
 from pylab import *
-
 from matplotlib.animation import FuncAnimation
 
 from evolve import simulate_trial
 from seth_controller import SethController,EntityTypes,ENTITY_RADIUS
 import os
-
 plt.switch_backend('TkAgg')
-
 
 its_per_frame = 1
 delay_between_frames = 50 # ms

@@ -19,7 +19,6 @@ def plot_state_history(savepath,controller,file_prefix) :
             EntityTypes.FOOD : 'g',
             EntityTypes.WATER : 'b',
             EntityTypes.TRAP : 'r',
-            EntityTypes.UNKNOWN: 'y',
         }
         for x,y in controller.trial_data[f'eaten_{entity_type.name}_positions'] :
             c = plt.Circle((x,y), ENTITY_RADIUS, color=colors[entity_type],fill=False)
@@ -62,7 +61,6 @@ def plot_state_history(savepath,controller,file_prefix) :
             EntityTypes.FOOD : '#00ff00',
             EntityTypes.WATER : '#0000ff',
             EntityTypes.TRAP : '#ff0000',
-            EntityTypes.UNKNOWN: '#c9d6ff'
         }
         s_h = np.array(robot.sensors_h[entity_type])
         plot(controller.trial_data['sample_times'],s_h[:,0],color=colors[entity_type],ls='-')

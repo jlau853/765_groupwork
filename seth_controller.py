@@ -9,7 +9,6 @@ class EntityTypes(IntEnum):
     FOOD  = 0
     WATER = 1
     TRAP  = 2
-    UNKNOWN = 3
 
 class Sides(IntEnum):
     LEFT_SIDE   = 0 # all connections are ipsilateral
@@ -136,8 +135,6 @@ class SethController(object):
         LEFT = 0
         RIGHT = 1
         for entity_type in EntityTypes:
-            if entity_type == EntityTypes.UNKNOWN:
-                continue
             lm += self.links[Sides.LEFT_SIDE,entity_type].output(
                 self.sensor_states[entity_type][LEFT],
                 battery_states)[0]
@@ -167,8 +164,6 @@ class SethController(object):
 
         ## mutate genes
         baby_genome += mu*np.random.randn(len(mama.genome))
-
-        #puts numbers back inside 1 and 0 
         def bounce(y) :
             if y > 1.0 :
                 y = 1.0-(y-1.0)
@@ -178,7 +173,6 @@ class SethController(object):
 
         baby_genome = [bounce(x) for x in baby_genome]
 
-        # makes random mutation if over a certain amount
         if np.random.rand() < mu2 :
             gene_index = np.random.randint(len(mama.genome))
             baby_genome[gene_index] = np.random.rand()        
@@ -198,8 +192,6 @@ class SethController(object):
         
         for side in sides :
             for sensitivity in EntityTypes :
-                if sensitivity == EntityTypes.UNKNOWN:
-                    continue
                 l = self.links[side,sensitivity]
                 subplot2grid((3,n_sides),(sensitivity,side))
                 xs = linspace(0,1,101)
