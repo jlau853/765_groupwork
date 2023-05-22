@@ -38,43 +38,25 @@ pop = [SethController() for _ in range(POP_SIZE)] ## the evolving population (a 
 ## It is plotted in fitness_history.png
 pop_fit_history = []
 
-def random_light_position(robot) :    
+def random_light_position(robot, index) : 
+    """   
     x = np.random.rand()*2.0-1.0
     y = np.random.rand()*2.0-1.0
     # make sure new position is not too close to other lights or the robot
     while robot.is_close_to_any_light_or_the_robot(x,y,2.0 * ENTITY_RADIUS) :
         x = np.random.rand()*2.0-1.0
         y = np.random.rand()*2.0-1.0
-    return x,y
 
-def generate_static_environment(robot):
-    food_entities = []
-    water_entities = []
-    trap_entities = []
+    """
 
-    ## reset the environment
-    for entity_type in EntityTypes:
-        n = {
-            EntityTypes.FOOD  : 2,  ## how many of each entity type to create
-            EntityTypes.WATER : 2,
-            EntityTypes.TRAP  : 2,
-        }
-        for _ in range(n[entity_type]) :
-            x,y = random_light_position(robot)
-            entity_light = Light(x,y,entity_type)
-            robot.add_light(entity_light)
+    indices = [(-1, 1), (1, -1), (1,1), (-1, -1), (0,1), (0,-1)]
+    values = indices[index]
 
-            if entity_type == EntityTypes.FOOD :
-                food_entities.append(entity_light)
-            if entity_type == EntityTypes.WATER :
-                water_entities.append(entity_light)
-            if entity_type == EntityTypes.TRAP :
-                trap_entities.append(entity_light)
-    
-    return food_entities, water_entities, trap_entities
+    #return x,y
+    return values[0], values[1]
 
 
-def simulate_trial(controller,trial_index, robot, environment, generating_animation=False) :
+def simulate_trial(controller, trial_index, generating_animation=False) :
     """
     controller       -- the controller we are simulating
 
@@ -90,18 +72,41 @@ def simulate_trial(controller,trial_index, robot, environment, generating_animat
     current_time = 0.0    
     score = 0.0   
 
-    food_entities = environment[0]
-    water_entities = environment[1]
-    trap_entities = environment[2]
-
-    
-
     ## get the controller for the robot from the population
     controller.trial_data = {}
 
+    robot = Robot()
     robot.x = 0.0
     robot.y = 0.0
     robot.a = 0.0
+
+
+    food_entities = []
+    water_entities = []
+    trap_entities = []
+
+    ## reset the environment
+    count = 0
+    for entity_type in EntityTypes:
+        n = {
+            EntityTypes.FOOD  : 2,  ## how many of each entity type to create
+            EntityTypes.WATER : 2,
+            EntityTypes.TRAP  : 2,
+        }
+        
+        for _ in range(n[entity_type]) :
+            x,y = random_light_position(robot, count)
+            entity_light = Light(x,y,entity_type)
+            robot.add_light(entity_light)
+
+            if entity_type == EntityTypes.FOOD :
+                food_entities.append(entity_light)
+            if entity_type == EntityTypes.WATER :
+                water_entities.append(entity_light)
+            if entity_type == EntityTypes.TRAP :
+                trap_entities.append(entity_light)
+
+            count += 1
 
     
     
@@ -205,19 +210,19 @@ def evaluate_fitness(controller) :
     ind -- the controller that is being evaluated
 
     """
-
-    ## reset the robot
-    robot = Robot()
     
-    environment = generate_static_environment(robot)
-    
-    trial_scores = [simulate_trial(controller,trial_index, robot, environment) for trial_index in range(N_TRIALS)]
+    trial_scores = [simulate_trial(controller,trial_index) for trial_index in range(N_TRIALS)]
     controller.fitness = np.mean(trial_scores)
+
     
     return controller
 
+
+
 def generation() :
     global pop,generation_index
+
+    
     
     ## parallel evaluation of fitnesses (in parallel using multiprocessing)
     with Pool() as p:
