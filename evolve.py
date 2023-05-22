@@ -27,6 +27,8 @@ SITUATION_DURATION = 15.0
 DT = 0.02
 N_STEPS = int(SITUATION_DURATION / DT) ## the maximum number of steps per trial
 
+CHANGE = False
+
 if TEST_GA :
     N_STEPS = 1
     N_TRIALS = 1
@@ -38,7 +40,23 @@ pop = [SethController() for _ in range(POP_SIZE)] ## the evolving population (a 
 ## It is plotted in fitness_history.png
 pop_fit_history = []
 
-def random_light_position(robot, index) : 
+def generate_random_indices():
+    x = [np.random.rand()*2.0-1.0 for i in range(6)]
+    y = [np.random.rand()*2.0-1.0 for i in range(6)]
+
+    indices = []
+    
+    for i in range(6):
+        point = (x[i], y[i])
+        indices.append(point)
+    
+    return indices
+
+
+indices1 = [(-1, 1), (1, -1), (1,1), (-1, -1), (0,1), (0,-1)]
+indices2 = generate_random_indices()
+
+def set_light_position(robot, index, change) : 
     """   
     x = np.random.rand()*2.0-1.0
     y = np.random.rand()*2.0-1.0
@@ -48,11 +66,14 @@ def random_light_position(robot, index) :
         y = np.random.rand()*2.0-1.0
 
     """
+    global indices1, indices2
 
-    indices = [(-1, 1), (1, -1), (1,1), (-1, -1), (0,1), (0,-1)]
+    if change:
+        indices = indices2
+    else:
+        indices = indices1
     values = indices[index]
 
-    #return x,y
     return values[0], values[1]
 
 
@@ -65,6 +86,7 @@ def simulate_trial(controller, trial_index, generating_animation=False) :
                    currently simulating
 
     """
+    global generation_index
     # ## reset the seed to make randomness of environment consistent for this generation
     np.random.seed(generation_index*10+trial_index)
 
@@ -85,6 +107,11 @@ def simulate_trial(controller, trial_index, generating_animation=False) :
     water_entities = []
     trap_entities = []
 
+    if generation_index >= 75 and generation_index < 125:
+        change = True
+    else:
+        change = False
+    
     ## reset the environment
     count = 0
     for entity_type in EntityTypes:
@@ -95,7 +122,8 @@ def simulate_trial(controller, trial_index, generating_animation=False) :
         }
         
         for _ in range(n[entity_type]) :
-            x,y = random_light_position(robot, count)
+            x,y = set_light_position(robot, count, change)
+
             entity_light = Light(x,y,entity_type)
             robot.add_light(entity_light)
 
@@ -108,8 +136,6 @@ def simulate_trial(controller, trial_index, generating_animation=False) :
 
             count += 1
 
-    
-    
     ## batteries
     water_b = 1.0
     food_b = 1.0
@@ -222,8 +248,6 @@ def evaluate_fitness(controller) :
 def generation() :
     global pop,generation_index
 
-    
-    
     ## parallel evaluation of fitnesses (in parallel using multiprocessing)
     with Pool() as p:
         pop = p.map(evaluate_fitness, pop)
@@ -311,15 +335,14 @@ def generation() :
           f'({np.mean(fitnesses):.4f}/{np.min(fitnesses):.4f}/{np.max(fitnesses):.4f})')
     generation_index += 1
 
-    
+
 def evolve() :
     global fitnesses,generation_index
-
     print(f'Every generation is {POP_SIZE*N_TRIALS} fitness evaluations.')
     
     while True :
         fitnesses = generation()
-
+        
         if generation_index % DRAW_EVERY_NTH_GENERATION == 0 :
             fitness_plots(savepath,pop_fit_history)
             plot_population_genepool(savepath,pop)
