@@ -79,8 +79,8 @@ def simulate_trial(controller,trial_index,generating_animation=False) :
     ## reset the environment
     for entity_type in EntityTypes:
         n = {
-            EntityTypes.FOOD  : 2,  ## how many of each entity type to create
-            EntityTypes.WATER : 2,
+            EntityTypes.FOOD  : 10,  ## how many of each entity type to create
+            EntityTypes.WATER : 1,
             EntityTypes.TRAP  : 2,
         }
         for _ in range(n[entity_type]) :
