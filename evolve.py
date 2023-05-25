@@ -1,11 +1,12 @@
 from pylab import *
 import os,sys
 from scipy.spatial.distance import euclidean
-
+import pickle
 import pyximport; pyximport.install(language_level=3)
 from robot import Robot,Light
 from seth_controller import SethController, EntityTypes, ENTITY_RADIUS
 from plotting import plot_state_history,fitness_plots,plot_population_genepool
+import math
 
 from multiprocessing import Pool
 plt.switch_backend('agg')
@@ -19,6 +20,7 @@ TEST_GA = False
 
 DRAW_EVERY_NTH_GENERATION = 5
 
+numGenerations = []
 ## EVOLUTION PARAMETERS
 N_TRIALS = 5
 POP_SIZE = 25
@@ -110,7 +112,9 @@ def simulate_trial(controller,trial_index,generating_animation=False) :
     controller.trial_data['FOOD_positions'] = []
     controller.trial_data['WATER_positions'] = []
     controller.trial_data['TRAP_positions'] = []
-    
+    controller.trial_data['penalty_h'] = []
+
+    penalty = 0
     for iteration in range(N_STEPS) :
         ## keep track of battery states for plotting later
         controller.trial_data['sample_times'].append(current_time)
@@ -118,7 +122,16 @@ def simulate_trial(controller,trial_index,generating_animation=False) :
         controller.trial_data['food_battery_h'].append(food_b)
         controller.trial_data['score_h'].append(score)
 
-        if generating_animation :
+        if (iteration !=0):
+            food_positions = remove_coordinates([(l.x,l.y) for l in food_entities], controller.trial_data['eaten_FOOD_positions'])
+            water_positions = remove_coordinates([(l.x,l.y) for l in water_entities], controller.trial_data['eaten_WATER_positions'])
+            resources = food_positions + water_positions
+            current_pos = (robot.x_h[-1], robot.y_h[-1])
+            step_direction = (robot.x,robot.y)
+            penalty += calculate_penalty(current_pos,step_direction, resources)
+            controller.trial_data['penalty_h'].append(penalty)
+
+        if generating_animation:
             ##used in animation
             controller.trial_data[f'FOOD_positions'].append( [(l.x,l.y) for l in food_entities] )
             controller.trial_data[f'WATER_positions'].append( [(l.x,l.y) for l in water_entities] )
@@ -185,8 +198,9 @@ def simulate_trial(controller,trial_index,generating_animation=False) :
 
     if TEST_GA :
         score = np.mean(controller.genome)
-    
-    return score
+    ## to not penalize long living genomes
+    penalty /= current_time
+    return (score,penalty)
 
 def evaluate_fitness(controller) :
     """An evaluation of an individual's fitness is the average of its
@@ -197,12 +211,36 @@ def evaluate_fitness(controller) :
     """
     
     trial_scores = [simulate_trial(controller,trial_index) for trial_index in range(N_TRIALS)]
-    controller.fitness = np.mean(trial_scores)
-    
+    fitness_scores = [r[0] for r in trial_scores]
+    penalty_scores = [r[1] for r in trial_scores]
+    controller.fitness = np.mean(fitness_scores)
+    controller.penalties = np.mean(penalty_scores)
     return controller
 
+def calculate_penalty(current_pos, step_direction, target_directions):
+    angles = []
+    for target_direction in target_directions:
+        angle = math.atan2(target_direction[1] - current_pos[1], target_direction[0] - current_pos[1])
+        angles.append(angle)
+    angle_taken = math.atan2(step_direction[1] - current_pos[1], step_direction[0] - current_pos[1])
+    closest_val = closest_value(angles,angle_taken)
+    penalty = 180 - abs(abs(closest_val - angle_taken) - 180)
+    return penalty
+
+def remove_coordinates(list1, list2):
+    cleaned_list = []
+    for coordinate in list1:
+        if coordinate not in list2:
+            cleaned_list.append(coordinate)
+    return cleaned_list
+
+def closest_value(angles, angle_taken):
+  arr = np.asarray(angles)
+  i = (np.abs(arr - angle_taken)).argmin()
+  return arr[i]
+
 def generation() :
-    global pop,generation_index
+    global pop,generation_index, POP_SIZE, numGenerations
     
     ## parallel evaluation of fitnesses (in parallel using multiprocessing)
     with Pool() as p:
@@ -213,6 +251,8 @@ def generation() :
 
     ## the fitness of every individual controller in the population
     fitnesses = [r.fitness for r in pop]
+    penalties = [r.penalties for r in pop]
+    adaptedGenomes = [(r.trial_data['eaten_WATER_positions'], r.trial_data['eaten_FOOD_positions']) for r in pop if len(r.trial_data['eaten_WATER_positions']) > 0 and len(r.trial_data['eaten_FOOD_positions']) > 0]
     ## we track the fitness of every individual at every generation for plotting
     pop_fit_history.append(sorted(np.array(fitnesses)))
 
@@ -235,6 +275,17 @@ def generation() :
         # for ind_i in np.arange(POP_SIZE)[::5] :
         #     plot_state_history(os.path.join(savepath,'everyone/'),pop[ind_i],f'everyone/i{ind_i}')
         #     pop[worst_index].plot_links(f'everyone/i{ind_i}')
+    ##if (generation_index)
+    if (len(adaptedGenomes) >= 18 or generation_index >= 500):
+        numGenerations.append(generation_index)
+        savePopulation(pop)
+        saveData(pop_fit_history, "fitness_history")
+        saveData(penalties, "penalties")
+        if (len(numGenerations) == 10):
+            saveData(numGenerations, "generations")
+            raise Exception("Adapted population")
+        else:
+            evolve()
 
     ######################################################################
     #### USE FITNESS PROPORTIONATE SELECTION TO CREATE THE NEXT GENERATION
@@ -271,7 +322,7 @@ def generation() :
     ## individual from the previous generation
     best_index = np.argmax(fitnesses)
     best_individual = pop[best_index]
-    next_generation = [ SethController(genome = best_individual.genome) ]
+    next_generation = [ SethController(genome=best_individual.genome) ]
 
     ## ...and then populate the rest of the next generation by selecting
     ## parents in a weighted manner such that higher fitness parents have
@@ -286,15 +337,42 @@ def generation() :
 
     ## replace the old generation with the new
     pop = next_generation
-
     print(f'GENERATION # {generation_index}.\t(mean/min/max)'+
           f'({np.mean(fitnesses):.4f}/{np.min(fitnesses):.4f}/{np.max(fitnesses):.4f})')
+
+    print(f'GENERATION # {generation_index}. Penalty scores\t(mean/min/max)'+
+          f'({np.mean(penalties):.4f}/{np.min(penalties):.4f}/{np.max(penalties):.4f})')
     generation_index += 1
 
-    
-def evolve() :
-    global fitnesses,generation_index
+def savePopulation(robots):
+    global numGenerations
+    for robotIndex in range(len(robots)):
+        path = 'Populations/'+str(len(numGenerations))+"-penalty"
+        createIfNotExists(path)
+        file_name = path+'/robot'+str(robotIndex)+'.pkl'
+        with open(file_name, 'wb') as file:
+            pickle.dump(robots[robotIndex], file)
+            print(f'Object successfully saved to "{file_name}"')
 
+def createIfNotExists(path):
+    isExist = os.path.exists(path)
+    if not isExist:
+        os.makedirs(path)
+        
+def saveData(data, name):
+    dir = 'Populations/'+str(len(numGenerations))+"-penalty"
+    path = dir+'/'+name+'.pkl'
+    createIfNotExists(dir)
+    with open(path, 'wb') as fp:
+        pickle.dump(data, fp)
+
+def evolve() :
+    global fitnesses,generation_index, pop, pop_fit_history, numGenerations
+    fitnesses = []
+    generation_index = 0
+    seed = len(numGenerations) + 1
+    pop = [SethController(seed=(seed*x)) for x in range(POP_SIZE)]
+    pop_fit_history = []
     print(f'Every generation is {POP_SIZE*N_TRIALS} fitness evaluations.')
     
     while True :
