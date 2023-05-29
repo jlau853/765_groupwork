@@ -1,0 +1,694 @@
+[
+    {
+        "label": "*",
+        "importPath": "pylab",
+        "description": "pylab",
+        "isExtraImport": true,
+        "detail": "pylab",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "pylab",
+        "description": "pylab",
+        "isExtraImport": true,
+        "detail": "pylab",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "pylab",
+        "description": "pylab",
+        "isExtraImport": true,
+        "detail": "pylab",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "pylab",
+        "description": "pylab",
+        "isExtraImport": true,
+        "detail": "pylab",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "pylab",
+        "description": "pylab",
+        "isExtraImport": true,
+        "detail": "pylab",
+        "documentation": {}
+    },
+    {
+        "label": "FuncAnimation",
+        "importPath": "matplotlib.animation",
+        "description": "matplotlib.animation",
+        "isExtraImport": true,
+        "detail": "matplotlib.animation",
+        "documentation": {}
+    },
+    {
+        "label": "simulate_trial",
+        "importPath": "evolve",
+        "description": "evolve",
+        "isExtraImport": true,
+        "detail": "evolve",
+        "documentation": {}
+    },
+    {
+        "label": "SethController",
+        "importPath": "seth_controller",
+        "description": "seth_controller",
+        "isExtraImport": true,
+        "detail": "seth_controller",
+        "documentation": {}
+    },
+    {
+        "label": "EntityTypes",
+        "importPath": "seth_controller",
+        "description": "seth_controller",
+        "isExtraImport": true,
+        "detail": "seth_controller",
+        "documentation": {}
+    },
+    {
+        "label": "ENTITY_RADIUS",
+        "importPath": "seth_controller",
+        "description": "seth_controller",
+        "isExtraImport": true,
+        "detail": "seth_controller",
+        "documentation": {}
+    },
+    {
+        "label": "SethController",
+        "importPath": "seth_controller",
+        "description": "seth_controller",
+        "isExtraImport": true,
+        "detail": "seth_controller",
+        "documentation": {}
+    },
+    {
+        "label": "EntityTypes",
+        "importPath": "seth_controller",
+        "description": "seth_controller",
+        "isExtraImport": true,
+        "detail": "seth_controller",
+        "documentation": {}
+    },
+    {
+        "label": "ENTITY_RADIUS",
+        "importPath": "seth_controller",
+        "description": "seth_controller",
+        "isExtraImport": true,
+        "detail": "seth_controller",
+        "documentation": {}
+    },
+    {
+        "label": "SethController",
+        "importPath": "seth_controller",
+        "description": "seth_controller",
+        "isExtraImport": true,
+        "detail": "seth_controller",
+        "documentation": {}
+    },
+    {
+        "label": "EntityTypes",
+        "importPath": "seth_controller",
+        "description": "seth_controller",
+        "isExtraImport": true,
+        "detail": "seth_controller",
+        "documentation": {}
+    },
+    {
+        "label": "ENTITY_RADIUS",
+        "importPath": "seth_controller",
+        "description": "seth_controller",
+        "isExtraImport": true,
+        "detail": "seth_controller",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "os,sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os.sys",
+        "description": "os.sys",
+        "detail": "os.sys",
+        "documentation": {}
+    },
+    {
+        "label": "euclidean",
+        "importPath": "scipy.spatial.distance",
+        "description": "scipy.spatial.distance",
+        "isExtraImport": true,
+        "detail": "scipy.spatial.distance",
+        "documentation": {}
+    },
+    {
+        "label": "euclidean",
+        "importPath": "scipy.spatial.distance",
+        "description": "scipy.spatial.distance",
+        "isExtraImport": true,
+        "detail": "scipy.spatial.distance",
+        "documentation": {}
+    },
+    {
+        "label": "pyximport;",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pyximport;",
+        "description": "pyximport;",
+        "detail": "pyximport;",
+        "documentation": {}
+    },
+    {
+        "label": "Robot",
+        "importPath": "robot",
+        "description": "robot",
+        "isExtraImport": true,
+        "detail": "robot",
+        "documentation": {}
+    },
+    {
+        "label": "Light",
+        "importPath": "robot",
+        "description": "robot",
+        "isExtraImport": true,
+        "detail": "robot",
+        "documentation": {}
+    },
+    {
+        "label": "plot_state_history",
+        "importPath": "plotting",
+        "description": "plotting",
+        "isExtraImport": true,
+        "detail": "plotting",
+        "documentation": {}
+    },
+    {
+        "label": "fitness_plots",
+        "importPath": "plotting",
+        "description": "plotting",
+        "isExtraImport": true,
+        "detail": "plotting",
+        "documentation": {}
+    },
+    {
+        "label": "plot_population_genepool",
+        "importPath": "plotting",
+        "description": "plotting",
+        "isExtraImport": true,
+        "detail": "plotting",
+        "documentation": {}
+    },
+    {
+        "label": "Pool",
+        "importPath": "multiprocessing",
+        "description": "multiprocessing",
+        "isExtraImport": true,
+        "detail": "multiprocessing",
+        "documentation": {}
+    },
+    {
+        "label": "make_axes_locatable",
+        "importPath": "mpl_toolkits.axes_grid1",
+        "description": "mpl_toolkits.axes_grid1",
+        "isExtraImport": true,
+        "detail": "mpl_toolkits.axes_grid1",
+        "documentation": {}
+    },
+    {
+        "label": "IntEnum",
+        "importPath": "enum",
+        "description": "enum",
+        "isExtraImport": true,
+        "detail": "enum",
+        "documentation": {}
+    },
+    {
+        "label": "Enum",
+        "importPath": "enum",
+        "description": "enum",
+        "isExtraImport": true,
+        "detail": "enum",
+        "documentation": {}
+    },
+    {
+        "label": "IntEnum",
+        "importPath": "enum",
+        "description": "enum",
+        "isExtraImport": true,
+        "detail": "enum",
+        "documentation": {}
+    },
+    {
+        "label": "copy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "copy",
+        "description": "copy",
+        "detail": "copy",
+        "documentation": {}
+    },
+    {
+        "label": "init",
+        "kind": 2,
+        "importPath": "animate_best",
+        "description": "animate_best",
+        "peekOfCode": "def init():\n    ax.set_xlim(-1.5,1.5)\n    ax.set_ylim(-1.5,1.5)\n    ax.set_aspect('equal')\n    return ln,fc,wc,tc,robot_pos\ndef update(frame):\n    current_it = frame*its_per_frame \n    xdata=rxs[0:current_it]\n    ydata=rys[0:current_it]\n    ln.set_data(xdata, ydata)",
+        "detail": "animate_best",
+        "documentation": {}
+    },
+    {
+        "label": "update",
+        "kind": 2,
+        "importPath": "animate_best",
+        "description": "animate_best",
+        "peekOfCode": "def update(frame):\n    current_it = frame*its_per_frame \n    xdata=rxs[0:current_it]\n    ydata=rys[0:current_it]\n    ln.set_data(xdata, ydata)\n    fc.set_data(food_positions[current_it,:,0],\n                food_positions[current_it,:,1])\n    wc.set_data(water_positions[current_it,:,0],\n                water_positions[current_it,:,1])\n    tc.set_data(trap_positions[current_it,:,0],",
+        "detail": "animate_best",
+        "documentation": {}
+    },
+    {
+        "label": "its_per_frame",
+        "kind": 5,
+        "importPath": "animate_best",
+        "description": "animate_best",
+        "peekOfCode": "its_per_frame = 1\ndelay_between_frames = 50 # ms\nloadme = os.path.join('output','best_genome.npy')\nbest_genome = np.load(loadme)\ncontroller = SethController(genome = best_genome)\nseed = np.random.randint(1000)\nsimulate_trial(controller,seed,generating_animation=True)\nrxs = controller.trial_data['robot'].x_h\nrys = controller.trial_data['robot'].y_h\nfig, ax = plt.subplots()",
+        "detail": "animate_best",
+        "documentation": {}
+    },
+    {
+        "label": "delay_between_frames",
+        "kind": 5,
+        "importPath": "animate_best",
+        "description": "animate_best",
+        "peekOfCode": "delay_between_frames = 50 # ms\nloadme = os.path.join('output','best_genome.npy')\nbest_genome = np.load(loadme)\ncontroller = SethController(genome = best_genome)\nseed = np.random.randint(1000)\nsimulate_trial(controller,seed,generating_animation=True)\nrxs = controller.trial_data['robot'].x_h\nrys = controller.trial_data['robot'].y_h\nfig, ax = plt.subplots()\nxdata, ydata = [], []",
+        "detail": "animate_best",
+        "documentation": {}
+    },
+    {
+        "label": "loadme",
+        "kind": 5,
+        "importPath": "animate_best",
+        "description": "animate_best",
+        "peekOfCode": "loadme = os.path.join('output','best_genome.npy')\nbest_genome = np.load(loadme)\ncontroller = SethController(genome = best_genome)\nseed = np.random.randint(1000)\nsimulate_trial(controller,seed,generating_animation=True)\nrxs = controller.trial_data['robot'].x_h\nrys = controller.trial_data['robot'].y_h\nfig, ax = plt.subplots()\nxdata, ydata = [], []\nln, = plt.plot([], [], 'k,')",
+        "detail": "animate_best",
+        "documentation": {}
+    },
+    {
+        "label": "best_genome",
+        "kind": 5,
+        "importPath": "animate_best",
+        "description": "animate_best",
+        "peekOfCode": "best_genome = np.load(loadme)\ncontroller = SethController(genome = best_genome)\nseed = np.random.randint(1000)\nsimulate_trial(controller,seed,generating_animation=True)\nrxs = controller.trial_data['robot'].x_h\nrys = controller.trial_data['robot'].y_h\nfig, ax = plt.subplots()\nxdata, ydata = [], []\nln, = plt.plot([], [], 'k,')\nn_samples, n_entities, n_coords = np.shape( controller.trial_data['FOOD_positions'] )",
+        "detail": "animate_best",
+        "documentation": {}
+    },
+    {
+        "label": "controller",
+        "kind": 5,
+        "importPath": "animate_best",
+        "description": "animate_best",
+        "peekOfCode": "controller = SethController(genome = best_genome)\nseed = np.random.randint(1000)\nsimulate_trial(controller,seed,generating_animation=True)\nrxs = controller.trial_data['robot'].x_h\nrys = controller.trial_data['robot'].y_h\nfig, ax = plt.subplots()\nxdata, ydata = [], []\nln, = plt.plot([], [], 'k,')\nn_samples, n_entities, n_coords = np.shape( controller.trial_data['FOOD_positions'] )\nfood_positions = np.array(controller.trial_data['FOOD_positions'])",
+        "detail": "animate_best",
+        "documentation": {}
+    },
+    {
+        "label": "seed",
+        "kind": 5,
+        "importPath": "animate_best",
+        "description": "animate_best",
+        "peekOfCode": "seed = np.random.randint(1000)\nsimulate_trial(controller,seed,generating_animation=True)\nrxs = controller.trial_data['robot'].x_h\nrys = controller.trial_data['robot'].y_h\nfig, ax = plt.subplots()\nxdata, ydata = [], []\nln, = plt.plot([], [], 'k,')\nn_samples, n_entities, n_coords = np.shape( controller.trial_data['FOOD_positions'] )\nfood_positions = np.array(controller.trial_data['FOOD_positions'])\nwater_positions = np.array(controller.trial_data['WATER_positions'])",
+        "detail": "animate_best",
+        "documentation": {}
+    },
+    {
+        "label": "rxs",
+        "kind": 5,
+        "importPath": "animate_best",
+        "description": "animate_best",
+        "peekOfCode": "rxs = controller.trial_data['robot'].x_h\nrys = controller.trial_data['robot'].y_h\nfig, ax = plt.subplots()\nxdata, ydata = [], []\nln, = plt.plot([], [], 'k,')\nn_samples, n_entities, n_coords = np.shape( controller.trial_data['FOOD_positions'] )\nfood_positions = np.array(controller.trial_data['FOOD_positions'])\nwater_positions = np.array(controller.trial_data['WATER_positions'])\ntrap_positions = np.array(controller.trial_data['TRAP_positions'])\n## exact radius of entities is approximate. May see glitches where",
+        "detail": "animate_best",
+        "documentation": {}
+    },
+    {
+        "label": "rys",
+        "kind": 5,
+        "importPath": "animate_best",
+        "description": "animate_best",
+        "peekOfCode": "rys = controller.trial_data['robot'].y_h\nfig, ax = plt.subplots()\nxdata, ydata = [], []\nln, = plt.plot([], [], 'k,')\nn_samples, n_entities, n_coords = np.shape( controller.trial_data['FOOD_positions'] )\nfood_positions = np.array(controller.trial_data['FOOD_positions'])\nwater_positions = np.array(controller.trial_data['WATER_positions'])\ntrap_positions = np.array(controller.trial_data['TRAP_positions'])\n## exact radius of entities is approximate. May see glitches where\n## robot seems to be close enough to have eaten a thing, but it",
+        "detail": "animate_best",
+        "documentation": {}
+    },
+    {
+        "label": "ln,",
+        "kind": 5,
+        "importPath": "animate_best",
+        "description": "animate_best",
+        "peekOfCode": "ln, = plt.plot([], [], 'k,')\nn_samples, n_entities, n_coords = np.shape( controller.trial_data['FOOD_positions'] )\nfood_positions = np.array(controller.trial_data['FOOD_positions'])\nwater_positions = np.array(controller.trial_data['WATER_positions'])\ntrap_positions = np.array(controller.trial_data['TRAP_positions'])\n## exact radius of entities is approximate. May see glitches where\n## robot seems to be close enough to have eaten a thing, but it\n## doesn't disappear. That is a bug with the animation, not the\n## simulation :-)\nfc, = plt.plot(food_positions[0,:,0],",
+        "detail": "animate_best",
+        "documentation": {}
+    },
+    {
+        "label": "food_positions",
+        "kind": 5,
+        "importPath": "animate_best",
+        "description": "animate_best",
+        "peekOfCode": "food_positions = np.array(controller.trial_data['FOOD_positions'])\nwater_positions = np.array(controller.trial_data['WATER_positions'])\ntrap_positions = np.array(controller.trial_data['TRAP_positions'])\n## exact radius of entities is approximate. May see glitches where\n## robot seems to be close enough to have eaten a thing, but it\n## doesn't disappear. That is a bug with the animation, not the\n## simulation :-)\nfc, = plt.plot(food_positions[0,:,0],\n               food_positions[0,:,1],'g.',markersize=35.0,alpha=0.5)\nwc, = plt.plot(water_positions[0,:,0],",
+        "detail": "animate_best",
+        "documentation": {}
+    },
+    {
+        "label": "water_positions",
+        "kind": 5,
+        "importPath": "animate_best",
+        "description": "animate_best",
+        "peekOfCode": "water_positions = np.array(controller.trial_data['WATER_positions'])\ntrap_positions = np.array(controller.trial_data['TRAP_positions'])\n## exact radius of entities is approximate. May see glitches where\n## robot seems to be close enough to have eaten a thing, but it\n## doesn't disappear. That is a bug with the animation, not the\n## simulation :-)\nfc, = plt.plot(food_positions[0,:,0],\n               food_positions[0,:,1],'g.',markersize=35.0,alpha=0.5)\nwc, = plt.plot(water_positions[0,:,0],\n               water_positions[0,:,1],'b.',markersize=35.0,alpha=0.5)",
+        "detail": "animate_best",
+        "documentation": {}
+    },
+    {
+        "label": "trap_positions",
+        "kind": 5,
+        "importPath": "animate_best",
+        "description": "animate_best",
+        "peekOfCode": "trap_positions = np.array(controller.trial_data['TRAP_positions'])\n## exact radius of entities is approximate. May see glitches where\n## robot seems to be close enough to have eaten a thing, but it\n## doesn't disappear. That is a bug with the animation, not the\n## simulation :-)\nfc, = plt.plot(food_positions[0,:,0],\n               food_positions[0,:,1],'g.',markersize=35.0,alpha=0.5)\nwc, = plt.plot(water_positions[0,:,0],\n               water_positions[0,:,1],'b.',markersize=35.0,alpha=0.5)\ntc, = plt.plot(trap_positions[0,:,0],",
+        "detail": "animate_best",
+        "documentation": {}
+    },
+    {
+        "label": "fc,",
+        "kind": 5,
+        "importPath": "animate_best",
+        "description": "animate_best",
+        "peekOfCode": "fc, = plt.plot(food_positions[0,:,0],\n               food_positions[0,:,1],'g.',markersize=35.0,alpha=0.5)\nwc, = plt.plot(water_positions[0,:,0],\n               water_positions[0,:,1],'b.',markersize=35.0,alpha=0.5)\ntc, = plt.plot(trap_positions[0,:,0],\n               trap_positions[0,:,1],'r.',markersize=35.0,alpha=0.5)\nrobot_pos, = plt.plot(rxs[0],rys[0],'k.',markersize=20.0,alpha=0.5)\ndef init():\n    ax.set_xlim(-1.5,1.5)\n    ax.set_ylim(-1.5,1.5)",
+        "detail": "animate_best",
+        "documentation": {}
+    },
+    {
+        "label": "wc,",
+        "kind": 5,
+        "importPath": "animate_best",
+        "description": "animate_best",
+        "peekOfCode": "wc, = plt.plot(water_positions[0,:,0],\n               water_positions[0,:,1],'b.',markersize=35.0,alpha=0.5)\ntc, = plt.plot(trap_positions[0,:,0],\n               trap_positions[0,:,1],'r.',markersize=35.0,alpha=0.5)\nrobot_pos, = plt.plot(rxs[0],rys[0],'k.',markersize=20.0,alpha=0.5)\ndef init():\n    ax.set_xlim(-1.5,1.5)\n    ax.set_ylim(-1.5,1.5)\n    ax.set_aspect('equal')\n    return ln,fc,wc,tc,robot_pos",
+        "detail": "animate_best",
+        "documentation": {}
+    },
+    {
+        "label": "tc,",
+        "kind": 5,
+        "importPath": "animate_best",
+        "description": "animate_best",
+        "peekOfCode": "tc, = plt.plot(trap_positions[0,:,0],\n               trap_positions[0,:,1],'r.',markersize=35.0,alpha=0.5)\nrobot_pos, = plt.plot(rxs[0],rys[0],'k.',markersize=20.0,alpha=0.5)\ndef init():\n    ax.set_xlim(-1.5,1.5)\n    ax.set_ylim(-1.5,1.5)\n    ax.set_aspect('equal')\n    return ln,fc,wc,tc,robot_pos\ndef update(frame):\n    current_it = frame*its_per_frame ",
+        "detail": "animate_best",
+        "documentation": {}
+    },
+    {
+        "label": "robot_pos,",
+        "kind": 5,
+        "importPath": "animate_best",
+        "description": "animate_best",
+        "peekOfCode": "robot_pos, = plt.plot(rxs[0],rys[0],'k.',markersize=20.0,alpha=0.5)\ndef init():\n    ax.set_xlim(-1.5,1.5)\n    ax.set_ylim(-1.5,1.5)\n    ax.set_aspect('equal')\n    return ln,fc,wc,tc,robot_pos\ndef update(frame):\n    current_it = frame*its_per_frame \n    xdata=rxs[0:current_it]\n    ydata=rys[0:current_it]",
+        "detail": "animate_best",
+        "documentation": {}
+    },
+    {
+        "label": "ani",
+        "kind": 5,
+        "importPath": "animate_best",
+        "description": "animate_best",
+        "peekOfCode": "ani = FuncAnimation(fig, update, frames=len(rxs)//its_per_frame,\n                    init_func=init, blit=True, interval=delay_between_frames)\nplt.show()",
+        "detail": "animate_best",
+        "documentation": {}
+    },
+    {
+        "label": "random_light_position",
+        "kind": 2,
+        "importPath": "evolve",
+        "description": "evolve",
+        "peekOfCode": "def random_light_position(robot) :    \n    x = np.random.rand()*2.0-1.0\n    y = np.random.rand()*2.0-1.0\n    # make sure new position is not too close to other lights or the robot\n    while robot.is_close_to_any_light_or_the_robot(x,y,2.0 * ENTITY_RADIUS) :\n        x = np.random.rand()*2.0-1.0\n        y = np.random.rand()*2.0-1.0\n    return x,y\ndef simulate_trial(controller,trial_index,generating_animation=False) :\n    \"\"\"",
+        "detail": "evolve",
+        "documentation": {}
+    },
+    {
+        "label": "simulate_trial",
+        "kind": 2,
+        "importPath": "evolve",
+        "description": "evolve",
+        "peekOfCode": "def simulate_trial(controller,trial_index,generating_animation=False) :\n    \"\"\"\n    controller       -- the controller we are simulating\n    trial_index -- we evaluate fitness by taking the average of N\n                   trials. This argument tells us which trial we are\n                   currently simulating\n    \"\"\"\n    # ## reset the seed to make randomness of environment consistent for this generation\n    np.random.seed(generation_index*10+trial_index)\n    #### initialize the simulation    ",
+        "detail": "evolve",
+        "documentation": {}
+    },
+    {
+        "label": "evaluate_fitness",
+        "kind": 2,
+        "importPath": "evolve",
+        "description": "evolve",
+        "peekOfCode": "def evaluate_fitness(controller) :\n    \"\"\"An evaluation of an individual's fitness is the average of its\n    performance in N_TRIAL simulations.\n    ind -- the controller that is being evaluated\n    \"\"\"\n    trial_scores = [simulate_trial(controller,trial_index) for trial_index in range(N_TRIALS)]\n    controller.fitness = np.mean(trial_scores)\n    return controller\ndef generation() :\n    global pop,generation_index",
+        "detail": "evolve",
+        "documentation": {}
+    },
+    {
+        "label": "generation",
+        "kind": 2,
+        "importPath": "evolve",
+        "description": "evolve",
+        "peekOfCode": "def generation() :\n    global pop,generation_index\n    ## parallel evaluation of fitnesses (in parallel using multiprocessing)\n    with Pool() as p:\n        pop = p.map(evaluate_fitness, pop)\n    # ## sequential evaluation of fitness\n    # pop = [evaluate_fitness(controller) for controller in pop]\n    ## the fitness of every individual controller in the population\n    fitnesses = [r.fitness for r in pop]\n    ## we track the fitness of every individual at every generation for plotting",
+        "detail": "evolve",
+        "documentation": {}
+    },
+    {
+        "label": "evolve",
+        "kind": 2,
+        "importPath": "evolve",
+        "description": "evolve",
+        "peekOfCode": "def evolve() :\n    global fitnesses,generation_index\n    print(f'Every generation is {POP_SIZE*N_TRIALS} fitness evaluations.')\n    while True :\n        fitnesses = generation()\n        if generation_index % DRAW_EVERY_NTH_GENERATION == 0 :\n            fitness_plots(savepath,pop_fit_history)\n            plot_population_genepool(savepath,pop)\nif __name__ == '__main__' :\n    evolve()",
+        "detail": "evolve",
+        "documentation": {}
+    },
+    {
+        "label": "savepath",
+        "kind": 5,
+        "importPath": "evolve",
+        "description": "evolve",
+        "peekOfCode": "savepath = os.path.abspath('./output/')\nTEST_GA = False\nDRAW_EVERY_NTH_GENERATION = 5\n## EVOLUTION PARAMETERS\nN_TRIALS = 5\nPOP_SIZE = 25\ngeneration_index = 0\nSITUATION_DURATION = 15.0\nDT = 0.02\nN_STEPS = int(SITUATION_DURATION / DT) ## the maximum number of steps per trial",
+        "detail": "evolve",
+        "documentation": {}
+    },
+    {
+        "label": "TEST_GA",
+        "kind": 5,
+        "importPath": "evolve",
+        "description": "evolve",
+        "peekOfCode": "TEST_GA = False\nDRAW_EVERY_NTH_GENERATION = 5\n## EVOLUTION PARAMETERS\nN_TRIALS = 5\nPOP_SIZE = 25\ngeneration_index = 0\nSITUATION_DURATION = 15.0\nDT = 0.02\nN_STEPS = int(SITUATION_DURATION / DT) ## the maximum number of steps per trial\nif TEST_GA :",
+        "detail": "evolve",
+        "documentation": {}
+    },
+    {
+        "label": "DRAW_EVERY_NTH_GENERATION",
+        "kind": 5,
+        "importPath": "evolve",
+        "description": "evolve",
+        "peekOfCode": "DRAW_EVERY_NTH_GENERATION = 5\n## EVOLUTION PARAMETERS\nN_TRIALS = 5\nPOP_SIZE = 25\ngeneration_index = 0\nSITUATION_DURATION = 15.0\nDT = 0.02\nN_STEPS = int(SITUATION_DURATION / DT) ## the maximum number of steps per trial\nif TEST_GA :\n    N_STEPS = 1",
+        "detail": "evolve",
+        "documentation": {}
+    },
+    {
+        "label": "N_TRIALS",
+        "kind": 5,
+        "importPath": "evolve",
+        "description": "evolve",
+        "peekOfCode": "N_TRIALS = 5\nPOP_SIZE = 25\ngeneration_index = 0\nSITUATION_DURATION = 15.0\nDT = 0.02\nN_STEPS = int(SITUATION_DURATION / DT) ## the maximum number of steps per trial\nif TEST_GA :\n    N_STEPS = 1\n    N_TRIALS = 1\n## THE POPULATION",
+        "detail": "evolve",
+        "documentation": {}
+    },
+    {
+        "label": "POP_SIZE",
+        "kind": 5,
+        "importPath": "evolve",
+        "description": "evolve",
+        "peekOfCode": "POP_SIZE = 25\ngeneration_index = 0\nSITUATION_DURATION = 15.0\nDT = 0.02\nN_STEPS = int(SITUATION_DURATION / DT) ## the maximum number of steps per trial\nif TEST_GA :\n    N_STEPS = 1\n    N_TRIALS = 1\n## THE POPULATION\npop = [SethController() for _ in range(POP_SIZE)] ## the evolving population (a list of SethControllers)",
+        "detail": "evolve",
+        "documentation": {}
+    },
+    {
+        "label": "generation_index",
+        "kind": 5,
+        "importPath": "evolve",
+        "description": "evolve",
+        "peekOfCode": "generation_index = 0\nSITUATION_DURATION = 15.0\nDT = 0.02\nN_STEPS = int(SITUATION_DURATION / DT) ## the maximum number of steps per trial\nif TEST_GA :\n    N_STEPS = 1\n    N_TRIALS = 1\n## THE POPULATION\npop = [SethController() for _ in range(POP_SIZE)] ## the evolving population (a list of SethControllers)\n## This keeps track of the fitness of the entire population since the start of the evolution.",
+        "detail": "evolve",
+        "documentation": {}
+    },
+    {
+        "label": "SITUATION_DURATION",
+        "kind": 5,
+        "importPath": "evolve",
+        "description": "evolve",
+        "peekOfCode": "SITUATION_DURATION = 15.0\nDT = 0.02\nN_STEPS = int(SITUATION_DURATION / DT) ## the maximum number of steps per trial\nif TEST_GA :\n    N_STEPS = 1\n    N_TRIALS = 1\n## THE POPULATION\npop = [SethController() for _ in range(POP_SIZE)] ## the evolving population (a list of SethControllers)\n## This keeps track of the fitness of the entire population since the start of the evolution.\n## It is plotted in fitness_history.png",
+        "detail": "evolve",
+        "documentation": {}
+    },
+    {
+        "label": "DT",
+        "kind": 5,
+        "importPath": "evolve",
+        "description": "evolve",
+        "peekOfCode": "DT = 0.02\nN_STEPS = int(SITUATION_DURATION / DT) ## the maximum number of steps per trial\nif TEST_GA :\n    N_STEPS = 1\n    N_TRIALS = 1\n## THE POPULATION\npop = [SethController() for _ in range(POP_SIZE)] ## the evolving population (a list of SethControllers)\n## This keeps track of the fitness of the entire population since the start of the evolution.\n## It is plotted in fitness_history.png\npop_fit_history = []",
+        "detail": "evolve",
+        "documentation": {}
+    },
+    {
+        "label": "N_STEPS",
+        "kind": 5,
+        "importPath": "evolve",
+        "description": "evolve",
+        "peekOfCode": "N_STEPS = int(SITUATION_DURATION / DT) ## the maximum number of steps per trial\nif TEST_GA :\n    N_STEPS = 1\n    N_TRIALS = 1\n## THE POPULATION\npop = [SethController() for _ in range(POP_SIZE)] ## the evolving population (a list of SethControllers)\n## This keeps track of the fitness of the entire population since the start of the evolution.\n## It is plotted in fitness_history.png\npop_fit_history = []\ndef random_light_position(robot) :    ",
+        "detail": "evolve",
+        "documentation": {}
+    },
+    {
+        "label": "pop",
+        "kind": 5,
+        "importPath": "evolve",
+        "description": "evolve",
+        "peekOfCode": "pop = [SethController() for _ in range(POP_SIZE)] ## the evolving population (a list of SethControllers)\n## This keeps track of the fitness of the entire population since the start of the evolution.\n## It is plotted in fitness_history.png\npop_fit_history = []\ndef random_light_position(robot) :    \n    x = np.random.rand()*2.0-1.0\n    y = np.random.rand()*2.0-1.0\n    # make sure new position is not too close to other lights or the robot\n    while robot.is_close_to_any_light_or_the_robot(x,y,2.0 * ENTITY_RADIUS) :\n        x = np.random.rand()*2.0-1.0",
+        "detail": "evolve",
+        "documentation": {}
+    },
+    {
+        "label": "pop_fit_history",
+        "kind": 5,
+        "importPath": "evolve",
+        "description": "evolve",
+        "peekOfCode": "pop_fit_history = []\ndef random_light_position(robot) :    \n    x = np.random.rand()*2.0-1.0\n    y = np.random.rand()*2.0-1.0\n    # make sure new position is not too close to other lights or the robot\n    while robot.is_close_to_any_light_or_the_robot(x,y,2.0 * ENTITY_RADIUS) :\n        x = np.random.rand()*2.0-1.0\n        y = np.random.rand()*2.0-1.0\n    return x,y\ndef simulate_trial(controller,trial_index,generating_animation=False) :",
+        "detail": "evolve",
+        "documentation": {}
+    },
+    {
+        "label": "plot_state_history",
+        "kind": 2,
+        "importPath": "plotting",
+        "description": "plotting",
+        "peekOfCode": "def plot_state_history(savepath,controller,file_prefix) :\n    robot = controller.trial_data['robot']\n    ###########################\n    figure()\n    plot(robot.x_h,robot.y_h,'k,',lw=0.5,alpha=0.5,label=f'Robot Trajectory')\n    plot(robot.x_h[-1],robot.y_h[-1],'k.',label=f'Robot Final Position',markersize=15.0)\n    c = plt.Circle((robot.x_h[-1],robot.y_h[-1]), robot.RADIUS, color='k',fill=True)\n    gca().add_patch(c)\n    for entity_type in EntityTypes:\n        colors = {",
+        "detail": "plotting",
+        "documentation": {}
+    },
+    {
+        "label": "fitness_plots",
+        "kind": 2,
+        "importPath": "plotting",
+        "description": "plotting",
+        "peekOfCode": "def fitness_plots(savepath,pop_fit_history) :\n    figure() ## detailed fitness plot\n    n_generations = np.shape(pop_fit_history)[0]\n    pop_size = np.shape(pop_fit_history)[1]\n    im = imshow(np.array(pop_fit_history).T,aspect='auto',extent=[0,n_generations,0,pop_size])\n    xticks(range(n_generations))    \n    xlabel('generation')\n    ylabel('individual (sorted by fitness)')\n    title('fitness')\n    ## draw colorbar",
+        "detail": "plotting",
+        "documentation": {}
+    },
+    {
+        "label": "plot_population_genepool",
+        "kind": 2,
+        "importPath": "plotting",
+        "description": "plotting",
+        "peekOfCode": "def plot_population_genepool(savepath,pop) :\n        figure() # genes_of_entire_population\n        pop_size = len(pop)\n        g = np.zeros((pop[0].N_GENES,pop_size))\n        for index in range(pop_size) :\n            g[:,index] = pop[index].genome\n        imshow(g)\n        xlabel('individual')\n        ylabel('gene')\n        colorbar()",
+        "detail": "plotting",
+        "documentation": {}
+    },
+    {
+        "label": "DPI",
+        "kind": 5,
+        "importPath": "plotting",
+        "description": "plotting",
+        "peekOfCode": "DPI = 90\ndef plot_state_history(savepath,controller,file_prefix) :\n    robot = controller.trial_data['robot']\n    ###########################\n    figure()\n    plot(robot.x_h,robot.y_h,'k,',lw=0.5,alpha=0.5,label=f'Robot Trajectory')\n    plot(robot.x_h[-1],robot.y_h[-1],'k.',label=f'Robot Final Position',markersize=15.0)\n    c = plt.Circle((robot.x_h[-1],robot.y_h[-1]), robot.RADIUS, color='k',fill=True)\n    gca().add_patch(c)\n    for entity_type in EntityTypes:",
+        "detail": "plotting",
+        "documentation": {}
+    },
+    {
+        "label": "SensorSide",
+        "kind": 6,
+        "importPath": "robot",
+        "description": "robot",
+        "peekOfCode": "class SensorSide(IntEnum) :\n    LEFT = 0\n    RIGHT = 1\nclass Robot(object) :\n    def __init__(self) :\n        self.reset()\n        self.lights = {}\n        self.sensors = {}\n        self.sensors_h = {}\n    def reset(self) :",
+        "detail": "robot",
+        "documentation": {}
+    },
+    {
+        "label": "Robot",
+        "kind": 6,
+        "importPath": "robot",
+        "description": "robot",
+        "peekOfCode": "class Robot(object) :\n    def __init__(self) :\n        self.reset()\n        self.lights = {}\n        self.sensors = {}\n        self.sensors_h = {}\n    def reset(self) :\n        self.RADIUS = 0.1\n        self.MOTOR_SPEED = 1.0\n        ## the robot's position in a 2D space",
+        "detail": "robot",
+        "documentation": {}
+    },
+    {
+        "label": "Light",
+        "kind": 6,
+        "importPath": "robot",
+        "description": "robot",
+        "peekOfCode": "class Light(object) :\n    def __init__(self,x,y,light_type) :\n        \"\"\"\n        x,y -- position\n        light_type -- a string or other unique identifier to allow\n        different sensors to be sensitive to different 'types' of\n        light. Could be 'FOOD' or 'RED', etc.\n        \"\"\"\n        self.x = x\n        self.y = y",
+        "detail": "robot",
+        "documentation": {}
+    },
+    {
+        "label": "test_directional_light_sensors",
+        "kind": 2,
+        "importPath": "robot",
+        "description": "robot",
+        "peekOfCode": "def test_directional_light_sensors() :\n    r = Robot()\n    lx=ly=0.5 # light position\n    l = Light(0.5,0.5,'default')\n    r.add_light(l)\n    res = linspace(0,1,50)\n    xs,ys = mesh = meshgrid(res,res)\n    def f(coords) :\n        r.x = coords[0]\n        r.y = coords[1]",
+        "detail": "robot",
+        "documentation": {}
+    },
+    {
+        "label": "EntityTypes",
+        "kind": 6,
+        "importPath": "seth_controller",
+        "description": "seth_controller",
+        "peekOfCode": "class EntityTypes(IntEnum):\n    FOOD  = 0\n    WATER = 1\n    TRAP  = 2\nclass Sides(IntEnum):\n    LEFT_SIDE   = 0 # all connections are ipsilateral\n    RIGHT_SIDE = 1  # \nclass SMLink(object):\n    \"\"\" A single sensor to motor link. A SethController involves several of these.\"\"\"\n    N_MID_POINTS = 2",
+        "detail": "seth_controller",
+        "documentation": {}
+    },
+    {
+        "label": "Sides",
+        "kind": 6,
+        "importPath": "seth_controller",
+        "description": "seth_controller",
+        "peekOfCode": "class Sides(IntEnum):\n    LEFT_SIDE   = 0 # all connections are ipsilateral\n    RIGHT_SIDE = 1  # \nclass SMLink(object):\n    \"\"\" A single sensor to motor link. A SethController involves several of these.\"\"\"\n    N_MID_POINTS = 2\n    N_GENES = 2 + N_MID_POINTS*2 + 3  # 2 x-values (the mid points); 4 y-values; 3 battery infl. parameters\n    def __init__(self):\n        pass\n    def set_genome(self,genome) :",
+        "detail": "seth_controller",
+        "documentation": {}
+    },
+    {
+        "label": "SMLink",
+        "kind": 6,
+        "importPath": "seth_controller",
+        "description": "seth_controller",
+        "peekOfCode": "class SMLink(object):\n    \"\"\" A single sensor to motor link. A SethController involves several of these.\"\"\"\n    N_MID_POINTS = 2\n    N_GENES = 2 + N_MID_POINTS*2 + 3  # 2 x-values (the mid points); 4 y-values; 3 battery infl. parameters\n    def __init__(self):\n        pass\n    def set_genome(self,genome) :\n        \"\"\"Takes a genome of length N_GENES, with every element inbetween 0 and 1. \n        Uses those values to create a SMLink. \n        The first N_MID_POINTS values specify the x-positions of the piecewise control points.",
+        "detail": "seth_controller",
+        "documentation": {}
+    },
+    {
+        "label": "SethController",
+        "kind": 6,
+        "importPath": "seth_controller",
+        "description": "seth_controller",
+        "peekOfCode": "class SethController(object):\n    def __init__(self, genome=None, n_sensitivities=3, n_motors=2) :\n        self.n_sensitivities = n_sensitivities\n        self.n_motors = n_motors\n        self.SYMMETRIC = True\n        if self.SYMMETRIC :\n            n_sides = 1\n        else :\n            n_sides = 2\n        self.n_links = n_sensitivities * n_sides ## all links are ipsilateral",
+        "detail": "seth_controller",
+        "documentation": {}
+    },
+    {
+        "label": "ENTITY_RADIUS",
+        "kind": 5,
+        "importPath": "seth_controller",
+        "description": "seth_controller",
+        "peekOfCode": "ENTITY_RADIUS = 0.1\nclass EntityTypes(IntEnum):\n    FOOD  = 0\n    WATER = 1\n    TRAP  = 2\nclass Sides(IntEnum):\n    LEFT_SIDE   = 0 # all connections are ipsilateral\n    RIGHT_SIDE = 1  # \nclass SMLink(object):\n    \"\"\" A single sensor to motor link. A SethController involves several of these.\"\"\"",
+        "detail": "seth_controller",
+        "documentation": {}
+    }
+]

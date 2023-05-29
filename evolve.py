@@ -81,7 +81,7 @@ def simulate_trial(controller,trial_index,generating_animation=False) :
         n = {
             EntityTypes.FOOD  : 2,  ## how many of each entity type to create
             EntityTypes.WATER : 2,
-            EntityTypes.TRAP  : 2,
+            EntityTypes.TRAP  : 3,
         }
         for _ in range(n[entity_type]) :
             x,y = random_light_position(robot)
@@ -162,15 +162,17 @@ def simulate_trial(controller,trial_index,generating_animation=False) :
                 water_b += 20.0*DT
                 controller.trial_data['eaten_WATER_positions'].append( (light.x,light.y) )
                 light.x,light.y = random_light_position(robot) ## relocate entity
-
+        
         ## check for TRAP collisions                
         for light in robot.lights[EntityTypes.TRAP] :
             if (robot.x - light.x)**2 + (robot.y - light.y)**2 < ENTITY_RADIUS**2 :
-                food_b -= 50.0*DT
-                water_b -= 50.0*DT
+                food_b -= 10.0*DT
+                water_b -= 10.0*DT
                 score = 0.0
                 controller.trial_data['eaten_TRAP_positions'].append( (light.x,light.y) )
                 light.x,light.y = random_light_position(robot) ## relocate entity
+
+
 
         ## DEATH -- if either of the batteries reaches 0, the trial is over
         if food_b < 0.0 or water_b < 0.0 :
