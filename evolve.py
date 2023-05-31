@@ -171,7 +171,8 @@ def simulate_trial(controller,trial_index,generating_animation=False) :
                 score = 0.0
                 controller.trial_data['eaten_TRAP_positions'].append( (light.x,light.y) )
                 light.x,light.y = random_light_position(robot) ## relocate entity
-
+                robot.MOTOR_SPEED += 3
+                
 
 
         ## DEATH -- if either of the batteries reaches 0, the trial is over
